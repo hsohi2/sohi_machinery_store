@@ -1,0 +1,24 @@
+<h2 class="mb-4 text-light" style="text-align:center;">Category Details</h2>
+<div class="col d-flex justify-content-center pb-5">
+  <div class="card" style="width: 40rem;">
+    <div class="card-body bg-light">
+      <h5 class="card-title">Category Name: <%= @category.category_name %></h5>
+      <h6><i>Category Description: <%= @category.category_description %></i></h6>
+    </div>
+  </div>
+</div>
+<%= paginate @products %>
+<ul class="list-group list-group-flush mb-3 pt-2" >
+  <% @products.each do |p| %>
+    <div class="d-flex p-2">
+      <li id="list" class="list-group-item text-light border border-light" style="background-color:#214b4c; min-width:70%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
+      <li class="list-group-item border-0" style="background-color:#214b4c; min-width:30%; padding-right:0;"><button style="min-width:100%;">Add to Cart</button></li>
+    </div>
+  <% end %>
+</ul>
+<%= paginate @products %>
+<style>
+  ul li#list a:hover{
+    background-color:#000;
+  }
+</style>

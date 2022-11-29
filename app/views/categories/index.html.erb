@@ -1,0 +1,18 @@
+<div>
+  <h2 class="text-light text-center p-2">All Categories</h2>
+  <%= paginate @categories %>
+  <ul class="list-group list-group-flush mb-3 pt-2" >
+    <% @categories.each do |c| %>
+      <div class="d-flex p-2">
+        <li id="list" class="list-group-item text-light border border-light" style="background-color:#214b4c; min-width:30%;"><a class="text-light" style="text-decoration:none;" href="/categories/<%= c.id %>"><%= c.category_name %></a></li>
+        <li class="list-group-item text-light" style="background-color:#214b4c; min-width:70%;">Description: <%= c.category_description %></li>
+      </div>
+    <% end %>
+  </ul>
+  <%= paginate @categories %>
+</div>
+<style>
+  ul li#list a:hover{
+    background-color:#000;
+  }
+</style>

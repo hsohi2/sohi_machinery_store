@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sohi Machinery Store</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+     <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="bg-secondary">
+    <div class="container p-0" style="background-color:#214b4c;">
+      <div class="row">
+        <div class="col">
+          <%= render "layouts/menu" %>
+          <div class="p-4">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
