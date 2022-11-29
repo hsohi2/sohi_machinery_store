@@ -35,6 +35,10 @@ gem 'country_select', '~> 6.0'
 
 gem "image_processing", ">= 1.2"
 
+gem 'email_validator'
+
+gem 'phone-validator', '~> 0.0.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
