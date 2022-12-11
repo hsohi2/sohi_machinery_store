@@ -1,7 +1,7 @@
 <div>
   <h1 class="text-light">Search Results for <%= @query %>:</h1>
   <% if @filter == "nil" || @filter == nil %>
-    <p class="text-light">Showing all results. No filters applied.</p>
+    <p class="text-light">Showing all results for <%= @query %>. No category selected.</p>
   <% else %>
     <p class="text-light">Showing results for <%= @query %> in <%= @category.category_name %>.</p>
   <% end %>
