@@ -3,22 +3,11 @@
 <br /> Please note that we usually reply to the emails written to us within 2 business days.</p>
 <% @contact.each do |c| %>
   <div class="text-light text-center pt-5">
-    <h5>Name: <%= c.name %></h5>
-    <h5>Phone Number: <%= c.phone %></h5>
-    <h5>Email Address: <%= c.email %></h5>
-    <h5>Address: <%= c.street_address %></h5>
-    <h5><%= c.city %>, <%= c.province %>, <%= c.country %></h5>
-    <h5>Postal Code: <%= c.postal_code %></h5>
+    <h5 class="contact_h5">Name: <%= c.name %></h5>
+    <h5 class="contact_h5">Phone Number: <%= c.phone %></h5>
+    <h5 class="contact_h5">Email Address: <%= c.email %></h5>
+    <h5 class="contact_h5">Address: <%= c.street_address %></h5>
+    <h5 class="contact_h5"><%= c.city %>, <%= c.province %>, <%= c.country %></h5>
+    <h5 class="contact_h5">Postal Code: <%= c.postal_code %></h5>
   </div>
 <% end %>
-<style>
-  h5{
-    max-width:500px;
-    margin: 10px auto;
-    padding: 10px;
-    border: 2px solid #fff;
-    background-color: #252525;
-    letter-spacing: 2px;
-    border-radius: 5px;
-  }
-</style>

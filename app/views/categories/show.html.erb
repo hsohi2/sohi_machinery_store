@@ -8,17 +8,14 @@
   </div>
 </div>
 <%= paginate @products %>
-<ul class="list-group list-group-flush mb-3 pt-2" >
+<ul class="list-group list-group-flush mb-3 pt-2" style="list-style-type:none;">
   <% @products.each do |p| %>
-    <div class="d-flex p-2">
-      <li id="list" class="list-group-item text-light border border-light" style="background-color:#214b4c; min-width:70%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
-      <li class="list-group-item border-0" style="background-color:#214b4c; min-width:30%; padding-right:0;"><button style="min-width:100%;">Add to Cart</button></li>
-    </div>
+    <li>
+      <ul class="d-flex p-2" >
+        <li class="list-group-item text-light border border-light list_styles" style="background-color:#214b4c; min-width:70%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
+        <li class="list-group-item border-0" style="background-color:#214b4c; min-width:30%; padding-right:0;"><button style="min-width:100%;">Add to Cart</button></li>
+      </ul>
+    </li>
   <% end %>
 </ul>
 <%= paginate @products %>
-<style>
-  ul li#list a:hover{
-    background-color:#000;
-  }
-</style>

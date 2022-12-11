@@ -7,7 +7,22 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-     <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
+    <style>
+      ul li.list_styles a:hover{
+      background-color:#000;
+    }
+
+      h5.contact_h5{
+        max-width:500px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 2px solid #fff;
+        background-color: #252525;
+        letter-spacing: 2px;
+        border-radius: 5px;
+      }
+    </style>
   </head>
 
   <body class="bg-secondary">

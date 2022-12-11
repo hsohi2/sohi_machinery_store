@@ -7,7 +7,7 @@
       <p class="card-text">Product Price: $ <%= @product.product_price %></p>
       <p class="card-text">Product Category: <a href="/categories/<%= @category.id %>"><%= @category.category_name  %></a></p>
       <% if @product.image.present? %>
-        <%= image_tag @product.image, class: "img-fluid rounded mx-auto d-block" %>
+        <%= image_tag @product.image, class: "img-fluid rounded mx-auto d-block" , alt: "Image"%>
       <% end %>
     </div>
   </div>

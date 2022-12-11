@@ -11,14 +11,9 @@
     <%= paginate @products %>
     <ul class="list-group list-group-flush mb-3 pt-2">
       <% @products.each do |p| %>
-        <li id="listSearch" class="list-group-item text-light border border-light p-2 mb-2" style="background-color:#214b4c; min-width:30%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
+        <li class="list-group-item text-light border border-light p-2 mb-2 list_styles" style="background-color:#214b4c; min-width:30%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
       <% end %>
     </ul>
   <%= paginate @products %>
   <% end %>
 </div>
-<style>
-  ul li#listSearch a:hover{
-    background-color:#000;
-  }
-</style>
