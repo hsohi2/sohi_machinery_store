@@ -1,0 +1,12 @@
+<nav area-label="breadcrumb" class="rounded" style="background-color:#b8c2c2; --bs-breadcrumb-divider: '>>';">
+  <ol class="breadcrumb p-2">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <% @breadcrumbs.each do |b| %>
+      <% if b[:path].nil? %>
+        <li class="breadcrumb-item active" aria-current="page"><%= b[:label] %></li>
+      <% else %>
+        <li class="breadcrumb-item"><%= link_to b[:label], b[:path] %>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>

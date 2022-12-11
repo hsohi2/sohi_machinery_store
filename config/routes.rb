@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get "/about", to: "about#index", as: "about"
   get "/contact", to: "contact#index", as: "contact"
+
+  get "/account", to: "accounts#index", as: "account"
 end

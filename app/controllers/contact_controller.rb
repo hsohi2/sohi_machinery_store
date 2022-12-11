@@ -1,6 +1,6 @@
 class ContactController < ApplicationController
-  before_action :authenticate_user!
   def index
     @contact = Contact.all
+    add_breadcrumb('Contact')
   end
 end
