@@ -22,8 +22,15 @@
       </ul>
     </div>
     <div style="margin-left: auto; margin-right: 0;">
-      <form class="form-inline my-2 my-lg-0 d-flex bg-light p-2" style="border-radius:5px;" action="/search">
-        <input class="form-control mr-md-2" name="query" type="search" style="margin-right:6px" placeholder="Search" aria-label="Search" />
+      <form class="form-inline my-2 my-lg-0 d-flex bg-light p-2" style="border-radius:5px; min-width:440px;" action="/search">
+        <select name="filters" id="filters" class="form-select form-select-sm rounded bg-light text-dark p-1" style="margin-right:6px;">
+          <option value="nil" selected disabled class="bg-disabled">Select Category</option>
+          <% @categories = Category.all %>
+          <% @categories.each do |c| %>
+            <option value=<%= c.id %>><%= c.category_name %></option>
+          <% end %>
+        </select>
+        <input class="form-control mr-md-2" name="query" type="search" style="margin-right:6px; min-width:200px;" placeholder="Search" aria-label="Search" />
         <button class="btn btn-outline-danger" type="submit">Search</button>
       </form>
     </div>

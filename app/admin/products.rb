@@ -1,27 +1,16 @@
 ActiveAdmin.register Product do
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-   permit_params :product_id, :category_id, :product_name, :product_description, :product_price, :product_image, :product_likes, :image
-  #
+  permit_params :product_id, :category_id, :product_name, :product_description, :product_price, :image
 
   form do |f|
-    f.semantic_errors # shows errors on :base
-    f.inputs          # builds an input field for every attribute
+    f.semantic_errors
     f.inputs do
-      f.input :image, as: :file
+      f.input :category, label: "Category", collection: Category.all.map { |c| [c.category_name, c.id] }
+      f.input :product_name, label: "Product Name"
+      f.input :product_description, label: "Product Description"
+      f.input :product_price, label: "Product Price"
+      f.input :image, as: :file, label: "Image"
     end
-    f.actions         # adds the 'Submit' and 'Cancel' buttons
+    f.actions
   end
-  # or
-  #
-  # permit_params do
-  #   permitted = [:product_id, :category_id, :product_name, :product_description, :product_price, :product_image, :product_likes]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-
 end
