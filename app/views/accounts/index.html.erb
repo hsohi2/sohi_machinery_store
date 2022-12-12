@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <h6 class="text-light">Signed in as: <%= current_user.email %></h6>
   <% if(@addresses.count == 0)%>
-    <p><a href="/new_address">Add Address</a></p>
+    <p><a class="text-light" href="/new_address">Add Address</a></p>
   <% else %>
     <% @addresses.each do |a| %>
       <div>

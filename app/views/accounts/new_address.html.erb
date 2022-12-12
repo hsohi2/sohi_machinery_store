@@ -1,9 +1,19 @@
 <%= form_with(url: add_address_path) do |form| %>
-<%= form.label :address, "Address: " %>
-<%= form.text_field :address %>
+<div style="max-width:500px;">
+<div class="p-2 form-group">
+<%= form.label :address, "Street Address: "%>
+<%= form.text_field :address, class:"form-control" %><br />
+</div>
+<div class="p-2 form-group">
 <%= form.label :city, "City: " %>
-<%= form.text_field :city %>
+<%= form.text_field :city, class:"form-control" %><br />
+</div>
+<div class="p-2 form-group">
 <% provinces_array = Province.all.map { |p| [p.province_name, p.id] } %>
-<%= select_tag(:province, options_for_select(provinces_array)) %>
-<%= form.submit %>
+<%= form.label :province, "Select Province: " %>
+<%= select_tag(:province, options_for_select(provinces_array), class:"form-control") %><br />
+</div>
+<div class="p-2 form-group">
+<%= form.button "Save Address", type: "submit", :class=> "btn btn-primary" %>
+</div>
 <% end %>
