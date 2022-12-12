@@ -9,7 +9,7 @@ csv_data = File.read(filename)
 products_data = CSV.parse(csv_data, headers: true, encoding: "utf-8")
 
 products_data.each do |p|
-  product = Product.create(
+  Product.create(
     product_id:          p["Product_Id"],
     category_id:         p["Category_Id"],
     product_name:        p["Product_Name"],
@@ -21,5 +21,3 @@ products_data.each do |p|
 end
 
 Rails.logger.debug "Loading data from csv file #{filename} completed."
-
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
   belongs_to :user
-  has_one :province
+  has_one :province, dependent: :nullify
 end

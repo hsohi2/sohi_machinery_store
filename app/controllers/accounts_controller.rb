@@ -11,8 +11,8 @@ class AccountsController < ApplicationController
   def add_address
     user_id = current_user.id
 
-    address = Address.create(address: params[:address], city: params[:city], province_id: params[:province],
-                             user_id: user_id)
+    Address.create(address: params[:address], city: params[:city],
+                   province_id: params[:province], user_id: user_id)
     redirect_to account_path
   end
 end

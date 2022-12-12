@@ -13,17 +13,12 @@ class ProductsController < ApplicationController
 
   def search
     @filter = params[:filters]
-    @query = params[:query]
-    if params[:filters].nil?
-      @products = Product.where("product_name LIKE ?",
-                                "%#{params[:query]}%").page(params[:page])
-    elsif params[:filters] != "nil"
-      @products = Product.where("product_name LIKE ?",
-                                "%#{params[:query]}%").where("category_id =#{params[:filters]}").page(params[:page])
-      @category = Category.find(@filter)
+    query = params[:query]
+    if @filter.nil?
+      @products = Product.where("product_name LIKE ?", "%#{query}%").page(params[:page])
     else
-      @products = Product.where("product_name LIKE ?",
-                                "%#{params[:query]}%").page(params[:page])
+      @products = Product.where("product_name LIKE ?", "%#{query}%").where("category_id =#{@filter}").page(params[:page])
+      @category = Category.find(@filter)
     end
     add_breadcrumb("Search Results")
   end
@@ -37,6 +32,6 @@ class ProductsController < ApplicationController
       order_total += cart_item.product_price
       session[:cart].delete(cart_item.id)
     end
-    order = Order.create(user_id: current_user.id, order_total: order_total)
+    Order.create(user_id: current_user.id, order_total: order_total)
   end
 end
