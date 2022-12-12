@@ -1,22 +1,22 @@
-<nav class="rounded" style="background-color:#b8c2c2; --bs-breadcrumb-divider: '>>';">
-  <ol class="breadcrumb p-2">
+<nav class="rounded" class="text-light" style="--bs-breadcrumb-divider: '>>';">
+  <ol class="breadcrumb p-2 breadcrumb_styles">
     <% if controller_name == "home" && action_name == "index" %>
-      <li class="breadcrumb-item active" aria-current="page">Home</li>
+      <li class="breadcrumb-item active" aria-current="page" style="color:#c4c4c4;">Home</li>
     <% else %>
       <li class="breadcrumb-item"><a href="/">Home</a></li>
     <% end %>
     <% @breadcrumbs.each do |b| %>
       <% if b[:path].nil? %>
-        <li class="breadcrumb-item active" aria-current="page"><%= b[:label] %></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color:#c4c4c4;"><%= b[:label] %></li>
       <% else %>
         <li class="breadcrumb-item"><%= link_to b[:label], b[:path] %>
       <% end %>
     <% end %>
     <% if action_name == "cart" %>
-      <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+      <li class="breadcrumb-item active" style="color:#c4c4c4;" aria-current="page">Shopping Cart</li>
     <% end %>
     <% if action_name == "new" %>
-      <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+      <li class="breadcrumb-item active" style="color:#c4c4c4;" aria-current="page">Sign In</li>
     <% end %>
   </ol>
 </nav>

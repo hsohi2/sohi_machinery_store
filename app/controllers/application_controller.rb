@@ -20,19 +20,20 @@ class ApplicationController < ActionController::Base
   def add_to_cart
     id = params[:id].to_i
     session[:cart] << id unless session[:cart].include?(id)
-    redirect_to request.referrer
+    redirect_to request.referrer, notice: "Product added to cart."
   end
 
   def remove_from_cart
     id = params[:id].to_i
     session[:cart].delete(id)
-    redirect_to request.referrer
+    redirect_to request.referrer, notice: "Product removed from cart."
   end
 
   private
 
   def initialize_session
     session[:cart] ||= []
+    session[:quantity] ||= []
   end
 
   def load_cart
