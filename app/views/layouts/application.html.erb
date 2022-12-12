@@ -22,6 +22,10 @@
         letter-spacing: 2px;
         border-radius: 5px;
       }
+
+      .breadcrumb_styles a{
+        color: #fff;
+      }
     </style>
   </head>
 
@@ -30,8 +34,9 @@
       <div class="row">
         <div class="col">
           <%= render "layouts/menu" %>
-          <div class="p-4">
+          <div class="p-4 text-light">
             <%= render "layouts/breadcrumbs" %>
+            <%= render "layouts/flash" %>
             <%= yield %>
           </div>
           <p class="notice text-light"><%= notice %></p>
