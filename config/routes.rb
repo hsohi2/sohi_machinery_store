@@ -16,10 +16,13 @@ Rails.application.routes.draw do
   get "/contact", to: "contact#index", as: "contact"
 
   get "/account", to: "accounts#index", as: "account"
+  get "/new_address", to: "accounts#new_address", as: "new_address"
+  post "accounts/add_address/", to: "accounts#add_address", as: "add_address"
 
   post 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
   delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as: 'remove_from_cart'
   post 'products/update_cart/:id', to: 'products#update_cart', as: 'update_cart'
+  post 'products/buy', to: 'products#buy', as: 'buy'
 
   get "/cart", to: "products#cart", as: "cart"
 end

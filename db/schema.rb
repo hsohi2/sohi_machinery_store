@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_121338) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_075045) do
   create_table "abouts", force: :cascade do |t|
     t.string "title1"
     t.string "description1"
@@ -62,6 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_121338) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "address"
+    t.string "city"
+    t.integer "province_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -94,6 +103,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_121338) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "order_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "product_id"
     t.integer "category_id"
@@ -101,6 +117,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_121338) do
     t.string "product_description"
     t.float "product_price"
     t.integer "product_likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "province_name"
+    t.float "gst"
+    t.float "pst"
+    t.float "hst"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
