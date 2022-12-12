@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   def index
     add_breadcrumb("My Account")
-    @addresses = Address.where(current_user.id == :user_id)
+    @addresses = Address.where(user_id: current_user.id)
   end
 
   def new_address
