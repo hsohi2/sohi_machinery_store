@@ -1,6 +1,12 @@
 <% if @address == nil %>
   <p><a href="/new_address">Add Address</a></p>
 <% else %>
+  <div class="alert alert-success alert-dismissiblefade show" role="alert">
+    <span>Your order has been placed.</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="float:right; border:none; background:none; font-weight:bold;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="bg-light text-dark m-4 p-4">
     <h3 class="pb-5">Invoice:</h3>
     <h6>Ordered by:</h6>

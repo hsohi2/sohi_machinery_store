@@ -14,7 +14,7 @@
       <% if address == nil %>
         <p><a href="/new_address">Add Address</a></p>
       <% else %>
-        <%= button_to "Buy Now", buy_path %>
+        <%= button_to "Place Order", buy_path, class:"btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
