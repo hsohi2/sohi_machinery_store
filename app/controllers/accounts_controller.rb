@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   def index
-    add_breadcrumb('My Account')
-    @addresses = Address.where(:user_id == current_user.id)
+    add_breadcrumb("My Account")
+    @addresses = Address.where(current_user.id == :user_id)
   end
 
   def new_address
@@ -10,11 +10,9 @@ class AccountsController < ApplicationController
 
   def add_address
     user_id = current_user.id
-    address = params[:address]
-    city = params[:city]
-    province_id = params[:province]
 
-    address = Address.create(address: address, city: city, province_id: province_id, user_id: user_id)
+    address = Address.create(address: params[:address], city: params[:city], province_id: params[:province],
+                             user_id: user_id)
     redirect_to account_path
   end
 end

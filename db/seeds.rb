@@ -3,7 +3,7 @@ require "csv"
 Product.delete_all
 
 filename = Rails.root.join("db/products-2022-11-25.csv")
-puts "Loading products data from csv file #{filename}"
+Rails.logger.debug "Loading products data from csv file #{filename}"
 
 csv_data = File.read(filename)
 products_data = CSV.parse(csv_data, headers: true, encoding: "utf-8")
@@ -20,6 +20,6 @@ products_data.each do |p|
   )
 end
 
-puts "Loading data from csv file #{filename} completed."
+Rails.logger.debug "Loading data from csv file #{filename} completed."
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

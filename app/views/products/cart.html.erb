@@ -10,7 +10,11 @@
         <%= button_to 'Remove From Cart', remove_from_cart_path(cart_item.id), method: :delete %>
         <p><hr /></p>
       <% end %>
-      <%= button_to "Buy Now", buy_path %>
+      <% if @address == nil %>
+        <p><a href="/new_address">Add Address</a></p>
+      <% else %>
+        <%= button_to "Buy Now", buy_path %>
+      <% end %>
     <% end %>
   </div>
 </div>
