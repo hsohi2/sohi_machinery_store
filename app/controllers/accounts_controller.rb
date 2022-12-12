@@ -13,6 +13,11 @@ class AccountsController < ApplicationController
 
     Address.create(address: params[:address], city: params[:city],
                    province_id: params[:province], user_id: user_id)
-    redirect_to account_path
+    redirect_to account_path, notice: "Address added."
+  end
+
+  def delete_address
+    Address.where(user_id: current_user.id).destroy_all
+    redirect_to request.referer, notice: "Address deleted."
   end
 end

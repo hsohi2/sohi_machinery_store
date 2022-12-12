@@ -12,6 +12,7 @@
         <p>Province: <%= province.province_name %></p>
       </div>
     <% end %>
+    <%= button_to "Delete Address", delete_address_path, class: "btn btn-outline-light btn-sm m-auto p-2 mb-2" %>
   <% end %>
   <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-outline-light btn-sm m-auto p-2" %>
 <% else %>
