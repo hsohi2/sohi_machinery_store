@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @address = Address.where(:user_id == current_user.id).first
-    @province = Province.where(:province_id == @address.province_id).first
+    @address = Address.where(:user_id == current_user.id)
+    province_id = @address.first.province_id
+    @province = Province.find(province_id)
   end
 end

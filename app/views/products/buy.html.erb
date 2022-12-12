@@ -6,8 +6,8 @@
     <h6>Ordered by:</h6>
     <p><%= current_user.email %></p>
     <h6>Address:</h6>
-    <p><%= @address.address %></p>
-    <p><%= @address.city %></p>
+    <p><%= @address.first.address %></p>
+    <p><%= @address.first.city %></p>
     <p><%= @province.province_name %></p>
     <h6>Items:</h6>
     <% order_total = 0 %>
