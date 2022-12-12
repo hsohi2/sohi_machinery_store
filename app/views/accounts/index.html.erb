@@ -5,11 +5,11 @@
   <% else %>
     <% @addresses.each do |a| %>
       <div>
-        <h6>Address:</h6>
-        <p><%= a.address %></p>
-        <p><%= a.city %></p>
+        <h6 class="pt-3">Address:</h6>
+        <p>Street Address: <%= a.address %></p>
+        <p>City: <%= a.city %></p>
         <% province = Province.find(a.province_id)%>
-        <p><%= province.province_name %></p>
+        <p>Province: <%= province.province_name %></p>
       </div>
     <% end %>
   <% end %>
