@@ -25,4 +25,9 @@ class ProductsController < ApplicationController
     end
     add_breadcrumb('Search Results')
   end
+
+  def buy
+    @address = Address.where(:user_id = current_user.id).first
+    @province = Province.where(:province_id = @address.province_id).first
+  end
 end
