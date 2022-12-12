@@ -1,6 +1,31 @@
-<div>
-  <h6>Address:</h6>
-  <p><%= @address.address %></p>
-  <p><%= @address.city %></p>
-  <p><%= @province.province_name %></p>
-</div>
+<% if @address == nil %>
+  <p><a href="/new_address">Add Address</a></p>
+<% else %>
+  <div class="bg-light text-dark m-4 p-4">
+    <h3 class="pb-5">Invoice:</h3>
+    <h6>Ordered by:</h6>
+    <p><%= current_user.email %></p>
+    <h6>Address:</h6>
+    <p><%= @address.address %></p>
+    <p><%= @address.city %></p>
+    <p><%= @province.province_name %></p>
+    <h6>Items:</h6>
+    <% order_total = 0 %>
+    <% @cart.each do |cart_item| %>
+      <p><%= cart_item.product_name %></p>
+      <p>$<%= cart_item.product_price %></p>
+      <% order_total += cart_item.product_price%>
+    <% end %>
+    <h6>Order Total: $<%= order_total %></h6>
+    <h6>Taxes:</h6>
+    <% gst = order_total * @province.gst / 100 %>
+    <% pst = order_total * @province.pst / 100 %>
+    <% hst = order_total * @province.hst / 100 %>
+    <p>GST: $<%= gst %> &#40;<%= @province.gst %>&#x25;&#41;</p>
+    <p>PST: $<%= pst %> &#40;<%= @province.pst %>&#x25;&#41;</p>
+    <p>HST: $<%= hst %> &#40;<%= @province.hst %>&#x25;&#41;</p>
+    <p>*Taxes based on tax rates of <%= @province.province_name %></p>
+    <% grand_total = order_total + gst + pst + hst %>
+    <h6>Grand Total: $<%= grand_total %></h6>
+  </div>
+<% end %>

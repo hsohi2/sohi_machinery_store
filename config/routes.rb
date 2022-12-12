@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
   delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as: 'remove_from_cart'
   post 'products/update_cart/:id', to: 'products#update_cart', as: 'update_cart'
-  get 'products/buy', to: 'products#buy', as: 'buy'
+  post 'products/buy', to: 'products#buy', as: 'buy'
 
   get "/cart", to: "products#cart", as: "cart"
 end
