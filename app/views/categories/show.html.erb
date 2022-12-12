@@ -1,7 +1,7 @@
 <h2 class="mb-4 text-light" style="text-align:center;">Category Details</h2>
 <div class="col d-flex justify-content-center pb-5">
   <div class="card" style="width: 40rem;">
-    <div class="card-body bg-light">
+    <div class="card-body bg-light text-dark">
       <h5 class="card-title">Category Name: <%= @category.category_name %></h5>
       <h6><i>Category Description: <%= @category.category_description %></i></h6>
     </div>
@@ -12,9 +12,17 @@
   <% @products.each do |p| %>
     <li>
       <ul class="d-flex p-2" >
-        <li class="list-group-item text-light border border-light list_styles" style="background-color:#214b4c; min-width:70%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
-        <li class="list-group-item border-0" style="background-color:#214b4c; min-width:30%; padding-right:0;"><button style="min-width:100%;">Add to Cart</button></li>
-      </ul>
+          <li class="list-group-item text-light border border-light list_styles" style="background-color:#214b4c; min-width:70%;"><a class="text-light" style="text-decoration:none;" href="/products/<%= p.id %>"><%= p.product_name %></a></li>
+          <% if user_signed_in? %>
+            <% if @cart.include?(p) %>
+              <li class="list-group-item border-0" style="background-color:#214b4c; min-width:30%; padding-right:0;"><%= button_to 'Remove From Cart', remove_from_cart_path(p.id), method: :delete, style: "min-width:100%;" %></li>
+            <% else %>
+              <li class="list-group-item border-0" style="background-color:#214b4c; min-width:30%; padding-right:0;"><%= button_to "Add to Cart", add_to_cart_path(p.id), method: :post, style: "min-width:100%;" %></li>
+            <% end %>
+          <% else %>
+            <li class="bg-light p-2 text-center link-primary" style="min-width:30%; margin-left:8px;"><a class="nav-link" href="/users/sign_in">Sign In to Start Adding Items to Cart</a></li>
+          <% end %>
+        </ul>
     </li>
   <% end %>
 </ul>

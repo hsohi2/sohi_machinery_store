@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   get "/contact", to: "contact#index", as: "contact"
 
   get "/account", to: "accounts#index", as: "account"
+
+  post 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
+  delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as: 'remove_from_cart'
+
+  get "/cart", to: "products#cart", as: "cart"
 end

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all.page(params[:page])
     add_breadcrumb('Products')

@@ -1,0 +1,15 @@
+<div class="text-light">
+  <h2 class="text-center">Shopping Cart</h2>
+  <p class="text-center">Total items in cart: <%= @cart.size %></p>
+  <div class="bg-light text-dark p-4 border border-2 border-warning rounded-5" style="max-width:500px; margin:auto auto;">
+    <% if @cart.size == 0 %>
+      <p>Cart is empty. Start adding products to cart. <%= link_to "Click here", products_path %></p>
+    <% else %>
+      <% @cart.each do |cart_item| %>
+        <p><a style="text-decoration:none;" href="/products/<%= cart_item.id %>"><%= cart_item.product_name %></a></p>
+        <%= button_to 'Remove From Cart', remove_from_cart_path(cart_item.id), method: :delete %>
+        <p><hr /></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
