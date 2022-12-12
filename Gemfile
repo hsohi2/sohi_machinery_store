@@ -37,6 +37,9 @@ gem "image_processing", ">= 1.2"
 
 gem 'email_validator'
 
+gem 'rubocop'
+gem 'rubocop-rails'
+
 gem 'phone-validator', '~> 0.0.2'
 
 gem "letter_opener", group: :development

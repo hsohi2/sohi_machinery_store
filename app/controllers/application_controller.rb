@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def add_breadcrumb(label, path = nil)
     @breadcrumbs << {
       label: label,
-      path: path
+      path:  path
     }
   end
 
@@ -14,19 +14,18 @@ class ApplicationController < ActionController::Base
     @breadcrumbs = []
   end
 
-  def home
-  end
+  def home; end
 
   def add_to_cart
     id = params[:id].to_i
     session[:cart] << id unless session[:cart].include?(id)
-    redirect_to request.referrer, notice: "Product added to cart."
+    redirect_to request.referer, notice: "Product added to cart."
   end
 
   def remove_from_cart
     id = params[:id].to_i
     session[:cart].delete(id)
-    redirect_to request.referrer, notice: "Product removed from cart."
+    redirect_to request.referer, notice: "Product removed from cart."
   end
 
   private
