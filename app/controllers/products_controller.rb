@@ -13,11 +13,11 @@ class ProductsController < ApplicationController
 
   def search
     @filter = params[:filters]
-    query = params[:query]
+    @query = params[:query]
     if @filter.nil?
-      @products = Product.where("product_name LIKE ?", "%#{query}%").page(params[:page])
+      @products = Product.where("product_name LIKE ?", "%#{@query}%").page(params[:page])
     else
-      @products = Product.where("product_name LIKE ?", "%#{query}%").where("category_id =#{@filter}").page(params[:page])
+      @products = Product.where("product_name LIKE ?", "%#{@query}%").where("category_id =#{@filter}").page(params[:page])
       @category = Category.find(@filter)
     end
     add_breadcrumb("Search Results")
